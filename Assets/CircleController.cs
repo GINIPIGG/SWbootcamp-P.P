@@ -5,7 +5,7 @@ using UnityEngine;
 public class CircleController : MonoBehaviour
 {
     public Rigidbody2D MainCircle;
-    public float rotatespeed =0f;
+    public float rotatespeed = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,10 @@ public class CircleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0,0,-rotatespeed);
+        if(GameManager.instance.isGameOver == false)
+        {
+        transform.Rotate(0,0,-rotatespeed * Time.deltaTime);
+        }
     }
 }
  
